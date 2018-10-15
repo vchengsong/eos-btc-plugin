@@ -42,17 +42,17 @@
 #define ENABLE_MODULE_RECOVERY 1
 
 #pragma clang diagnostic push
-#pragma GCC diagnostic push
+//#pragma GCC diagnostic push
 #pragma clang diagnostic ignored "-Wconversion"
-#pragma GCC diagnostic ignored "-Wconversion"
+//#pragma GCC diagnostic ignored "-Wconversion"
 #pragma clang diagnostic ignored "-Wunused-function"
-#pragma GCC diagnostic ignored "-Wunused-function"
+//#pragma GCC diagnostic ignored "-Wunused-function"
 #pragma clang diagnostic ignored "-Wconditional-uninitialized"
-#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+//#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 #include "secp256k1/src/basic-config.h"
 #include "secp256k1/src/secp256k1.c"
 #pragma clang diagnostic pop
-#pragma GCC diagnostic pop
+//#pragma GCC diagnostic pop
 
 static secp256k1_context *_ctx = NULL;
 static pthread_once_t _ctx_once = PTHREAD_ONCE_INIT;

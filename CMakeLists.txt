@@ -4,9 +4,7 @@ project( eos-btc-plugin )
 
 add_subdirectory( libraries )
 
-
-
-
+add_subdirectory( test )
 
 
 
