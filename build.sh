@@ -8,7 +8,8 @@ if [ "${SOURCE_DIR}" == "${PWD}" ]; then
 else
   BUILD_DIR="${PWD}"
 fi
-CMAKE_BUILD_TYPE=Release
+#CMAKE_BUILD_TYPE=Release
+CMAKE_BUILD_TYPE=Debug
 
 BUILD_DIR="${PWD}/build"
 
