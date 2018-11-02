@@ -924,7 +924,7 @@ static void _peerRelayedTx(void *info, BRTransaction *tx)
     size_t relayCount = 0;
     
     pthread_mutex_lock(&manager->lock);
-    peer_log(peer, "relayed tx: %s", u256hex(tx->txHash));
+    peer_log(peer, "relayed tx: %s", u256hex(UInt256Reverse(tx->txHash)));
     
     for (size_t i = array_count(manager->publishedTx); i > 0; i--) { // see if tx is in list of published tx
         if (UInt256Eq(manager->publishedTxHashes[i - 1], tx->txHash)) {
@@ -1007,7 +1007,7 @@ static void _peerHasTx(void *info, UInt256 txHash)
     
     pthread_mutex_lock(&manager->lock);
     tx = BRWalletTransactionForHash(manager->wallet, txHash);
-    peer_log(peer, "has tx: %s", u256hex(txHash));
+    peer_log(peer, "has tx: %s", u256hex(UInt256Reverse(txHash)));
 
     for (size_t i = array_count(manager->publishedTx); i > 0; i--) { // see if tx is in list of published tx
         if (UInt256Eq(manager->publishedTxHashes[i - 1], txHash)) {
@@ -1057,7 +1057,7 @@ static void _peerRejectedTx(void *info, UInt256 txHash, uint8_t code)
     BRTransaction *tx, *t;
 
     pthread_mutex_lock(&manager->lock);
-    peer_log(peer, "rejected tx: %s", u256hex(txHash));
+    peer_log(peer, "rejected tx: %s", u256hex(UInt256Reverse(txHash)));
     tx = BRWalletTransactionForHash(manager->wallet, txHash);
     _BRTxPeerListRemovePeer(manager->txRequests, txHash, peer);
 
